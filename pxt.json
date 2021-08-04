@@ -2,13 +2,10 @@
     "name": "MonkMakes 7-Segment",
     "description": "",
     "dependencies": {
-        "core": "*",
-        "radio": "*",
-        "microphone": "*"
+        "core": "*"
     },
     "files": [
-        "main.blocks",
-        "main.ts",
+        "sevenSegment.ts",
         "README.md"
     ],
     "testFiles": [
