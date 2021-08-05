@@ -15,7 +15,7 @@ Connect the power pins GND and 3V between the micro:bit and the 7-segment for mi
 
 ## Counter Example
 
-Use the custom blocks provided by this extension to make your 7-segment for micro:bit display count up each second.
+Use the custom blocks provided by this extension to make your 7-segment for micro:bit display count up each second. The count will restart when button A is pressed. 
 
 You can copy the blocks from the below image or view the project (blocks and javascript view) [here](https://makecode.microbit.org/_Kj362WFJyYoc).
 
