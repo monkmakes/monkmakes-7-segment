@@ -1,5 +1,6 @@
 {
     "name": "MonkMakes 7-Segment",
+    "version": "1.0.0",
     "description": "",
     "dependencies": {
         "core": "*"
