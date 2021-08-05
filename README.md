@@ -1,31 +1,48 @@
+# MonkMakes 7-Segment for micro:bit
 
-> Open this page at [https://monkmakes.github.io/monkmakes-7-segment/](https://monkmakes.github.io/monkmakes-7-segment/)
+This extension provides blocks to interface with the [MonkMakes 7-segment for micro:bit](https://monkmakes.com/mb_7_seg.html).
 
-## Use as Extension
+The 7-segment display is:
+  * Easy to connect (just needs one micro:bit pin plus power)
+  * Powered directly from micro:bit pins
+  * Useful for displaying readings from sensors, making clocks etc.
 
-This repository can be added as an **extension** in MakeCode.
+## Connecting Your micro:bit
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/monkmakes/monkmakes-7-segment** and import
+Connect the power pins GND and 3V between the micro:bit and the 7-segment for micro:bit. Connect the Rx (marked as an arrow on newer versions) pin of the 7-segment for micro:bit to P0. Note you can also use other micro:bit pins to control the display.
 
-## Edit this project ![Build status badge](https://github.com/monkmakes/monkmakes-7-segment/workflows/MakeCode/badge.svg)
+![](/images/connecting.png/ "Connecting 7-segment display to micro:bit")
 
-To edit this repository in MakeCode.
+## Counter Example
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **Import** then click on **Import URL**
-* paste **https://github.com/monkmakes/monkmakes-7-segment** and click import
+Use the custom blocks provided by this extension to make your 7-segment for micro:bit display count up each second.
 
-## Blocks preview
+You can copy the blocks from the below image or view the project (blocks and javascript view) [here](https://makecode.microbit.org/_Kj362WFJyYoc).
 
-This image shows the blocks code from the last commit in master.
-This image may take a few minutes to refresh.
+<img src="/images/counter_code.png" alt="Blocks for the counter example" width="300">
 
-![A rendered view of the blocks](https://github.com/monkmakes/monkmakes-7-segment/raw/master/.github/makecode/blocks.png)
+## Thermometer Example
 
-#### Metadata (used for search, rendering)
+You can display the temperature of the micro:bit's CPU using [this example](https://makecode.microbit.org/_fX669RbwjTfU).
 
-* for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+<img src="/images/thermometer_code.png" alt="Blocks for the thermometer example" width="500">
+
+## Scrolling Text Example
+
+7-segment displays are not great for displaying text but [this example](https://makecode.microbit.org/_C6WEpJhi0JCc) shows how you can scroll text across the display.
+
+<img src="/images/scrolling_code.png" alt="Blocks for the scrolling text example" width="500">
+
+The 100 millisecond pause after the *start seven seg pin0* block is needed to give the serial port time to start working before you start sending messages. If you don't include it, you may find spurious segments display.
+
+The second parameter to scroll string sets the display in milliseconds between each character being displayed.
+
+## Clock Example
+
+[This example](https://makecode.microbit.org/_3U18cPCsW26X) shows how you can make a traditional LED clock displaying the hours and minutes in 24 hour format, with a blinking decimal point between the hour and minutes part of the display. Pressing button A will advance the hours by 1 and button B the minutes.
+
+<img src="/images/clock_code.png" alt="Blocks for the clock example" width="700">
+
+## License
+
+MIT.
