@@ -5,7 +5,7 @@
         "core": "*"
     },
     "files": [
-        "sevenSegment.ts",
+        "main.ts",
         "README.md"
     ],
     "testFiles": [
