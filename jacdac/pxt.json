@@ -1,5 +1,5 @@
 {
-    "name": "jacdac",
+    "name": "jacdac-monkmakes-7-segment",
     "dependencies": {
         "core": "*",
         "radio": "*",
