@@ -1,0 +1,22 @@
+{
+    "name": "jacdac",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "MonkMakes 7-Segment": "github:monkmakes/monkmakes-7-segment#v1.0.0",
+        "jacdac": "github:microsoft/pxt-jacdac#v0.8.18"
+    },
+    "files": [
+        "main.ts",
+        "README.md"
+    ],
+    "targetVersions": {
+        "target": "4.1.16",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}
