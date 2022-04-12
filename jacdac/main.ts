@@ -1,11 +1,21 @@
 //% deprecated
 namespace sevenSegment {
 }
+
+
+namespace modules {
+    /**
+     * Client for the MonkMakes 7-segment accesory
+     */
+    //% fixedInstance whenUsed block="MonkMakes 7 segment"
+    export const monkMakes7Segment = new SevenSegmentDisplayClient("MonkMakes 7 segment?device=self")
+}
+
 namespace servers {
     class SevenSegmentServer extends jacdac.Server {
         digits: Buffer = control.createBuffer(0)
         constructor() {
-            super("", jacdac.SRV_SEVEN_SEGMENT_DISPLAY)
+            super(jacdac.SRV_SEVEN_SEGMENT_DISPLAY)
         }
 
         handlePacket(pkt: jacdac.JDPacket) {
@@ -49,12 +59,4 @@ namespace servers {
         ])
     }
     start()
-}
-
-namespace modules {
-    /**
-     * Client for the MonkMakes 7-segment accesory
-     */
-    //% fixedInstance whenUsed block="MonkMakes 7-segment"
-    export const monkMakes7Segment = new SevenSegmentDisplayClient("MonkMakes 7-segment?device=self")
 }

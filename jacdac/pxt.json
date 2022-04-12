@@ -5,15 +5,18 @@
         "radio": "*",
         "microphone": "*",
         "MonkMakes 7-Segment": "github:monkmakes/monkmakes-7-segment#v1.0.0",
-        "jacdac": "github:microsoft/pxt-jacdac#v0.8.18",
-        "jacdac-seven-segment-display": "github:microsoft/pxt-jacdac/seven-segment-display#v0.8.24"
+        "jacdac": "github:microsoft/pxt-jacdac#v0.9.3",
+        "jacdac-seven-segment-display": "github:microsoft/pxt-jacdac/seven-segment-display#v0.9.3"
     },
     "files": [
         "main.ts",
         "README.md"
     ],
+    "testFiles": [
+        "test.ts"
+    ],
     "targetVersions": {
-        "target": "4.1.16",
+        "target": "4.0.18",
         "targetId": "microbit"
     },
     "supportedTargets": [
