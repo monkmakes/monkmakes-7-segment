@@ -6,8 +6,8 @@
         "radio": "*",
         "microphone": "*",
         "MonkMakes 7-Segment": "github:monkmakes/monkmakes-7-segment#v1.0.0",
-        "jacdac": "github:microsoft/pxt-jacdac#v0.10.3",
-        "jacdac-seven-segment-display": "github:microsoft/pxt-jacdac/seven-segment-display#v0.10.3"
+        "jacdac": "github:microsoft/pxt-jacdac#v0.10.5",
+        "jacdac-seven-segment-display": "github:microsoft/pxt-jacdac/seven-segment-display#v0.10.5"
     },
     "files": [
         "main.ts",

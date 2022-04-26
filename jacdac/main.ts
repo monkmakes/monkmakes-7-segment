@@ -74,6 +74,7 @@ namespace servers {
         }
     }
     function start() {
+        jacdac.productIdentifier = 0x38ef2074
         jacdac.startSelfServers(() => [
             new SevenSegmentServer()
         ])
