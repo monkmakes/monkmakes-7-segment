@@ -8,7 +8,7 @@ namespace modules {
      * Client for the MonkMakes 7-segment accesory
      */
     //% fixedInstance whenUsed block="MonkMakes 7 segment"
-    export const monkMakes7Segment = new SevenSegmentDisplayClient("MonkMakes 7 segment?device=self")
+    export const monkMakes7Segment = new SevenSegmentDisplayClient("MonkMakes 7 segment?dev=self&digits=4&decimal_point=true&double_dots=false")
 }
 
 namespace servers {
@@ -16,10 +16,30 @@ namespace servers {
         digits: Buffer = control.createBuffer(0)
         constructor() {
             super(jacdac.SRV_SEVEN_SEGMENT_DISPLAY)
+
+            this.setStatusCode(jacdac.SystemStatusCodes.Initializing)
+            control.inBackground(() => {
+                sevenSegment.startSevenSegPin0()
+                pause(200)
+                this.setStatusCode(jacdac.SystemStatusCodes.Ready)
+            })
         }
 
         handlePacket(pkt: jacdac.JDPacket) {
+            // constants
+            this.handleRegFormat(pkt, 
+                jacdac.SevenSegmentDisplayReg.DigitCount, 
+                jacdac.SevenSegmentDisplayRegPack.DigitCount, 
+                [4])
+            this.handleRegBool(pkt, 
+                jacdac.SevenSegmentDisplayReg.DecimalPoint, 
+                true)
+            this.handleRegBool(pkt, 
+                jacdac.SevenSegmentDisplayReg.DoubleDots, 
+                false)
+
             this.digits = this.handleRegBuffer(pkt, jacdac.SevenSegmentDisplayReg.Digits, this.digits)
+
             // convert back to characters
             const digitBits = [
                 0b00111111, // 0
