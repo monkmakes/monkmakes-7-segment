@@ -1,6 +1,6 @@
 {
     "name": "monkmakes-7-segment-jacdac",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "dependencies": {
         "core": "*",
         "radio": "*",
