@@ -8,16 +8,14 @@ namespace modules {
      * Client for the MonkMakes 7-segment accesory
      */
     //% fixedInstance whenUsed block="MonkMakes 7 segment"
-    export const monkMakes7Segment = new SevenSegmentDisplayClient("MonkMakes 7 segment?dev=self&digits=4&decimal_point=true&double_dots=false")
+    export const monkMakes7Segment = new SevenSegmentDisplayClient("MonkMakes 7 segment?dev=self&digits=4&decimal_point=1&double_dots=0")
 }
 
 namespace servers {
     class SevenSegmentServer extends jacdac.Server {
         digits: Buffer = control.createBuffer(0)
         constructor() {
-            super(jacdac.SRV_SEVEN_SEGMENT_DISPLAY)
-
-            this.setStatusCode(jacdac.SystemStatusCodes.Initializing)
+            super(jacdac.SRV_SEVEN_SEGMENT_DISPLAY, { statusCode: jacdac.SystemStatusCodes.Initializing })
             control.inBackground(() => {
                 sevenSegment.startSevenSegPin0()
                 pause(200)
@@ -27,15 +25,15 @@ namespace servers {
 
         handlePacket(pkt: jacdac.JDPacket) {
             // constants
-            this.handleRegFormat(pkt, 
-                jacdac.SevenSegmentDisplayReg.DigitCount, 
-                jacdac.SevenSegmentDisplayRegPack.DigitCount, 
+            this.handleRegFormat(pkt,
+                jacdac.SevenSegmentDisplayReg.DigitCount,
+                jacdac.SevenSegmentDisplayRegPack.DigitCount,
                 [4])
-            this.handleRegBool(pkt, 
-                jacdac.SevenSegmentDisplayReg.DecimalPoint, 
+            this.handleRegBool(pkt,
+                jacdac.SevenSegmentDisplayReg.DecimalPoint,
                 true)
-            this.handleRegBool(pkt, 
-                jacdac.SevenSegmentDisplayReg.DoubleDots, 
+            this.handleRegBool(pkt,
+                jacdac.SevenSegmentDisplayReg.DoubleDots,
                 false)
 
             this.digits = this.handleRegBuffer(pkt, jacdac.SevenSegmentDisplayReg.Digits, this.digits)
@@ -75,6 +73,7 @@ namespace servers {
     }
     function start() {
         jacdac.productIdentifier = 0x38ef2074
+        jacdac.deviceDescription = "MonkMakes 7-Segment"
         jacdac.startSelfServers(() => [
             new SevenSegmentServer()
         ])
