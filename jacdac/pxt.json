@@ -1,0 +1,27 @@
+{
+    "name": "monkmakes-7-segment-jacdac",
+    "version": "1.0.7",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "MonkMakes 7-Segment": "github:monkmakes/monkmakes-7-segment#v1.0.0",
+        "jacdac": "github:microsoft/pxt-jacdac#v0.10.41",
+        "jacdac-seven-segment-display": "github:microsoft/pxt-jacdac/seven-segment-display#v0.10.41"
+    },
+    "files": [
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "4.1.44",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}
